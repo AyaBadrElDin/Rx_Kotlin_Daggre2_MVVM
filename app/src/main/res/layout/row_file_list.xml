@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fileDownload"
+            type="com.example.filedownloadtask.data.remote.local.room.FileDownload" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_video_pdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                tools:src="@drawable/ic_baseline_file_open_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_toEndOf="@+id/img_video_pdf"
+                android:id="@+id/tv_file_name"
+                style="@style/textViewStyle"
+
+                android:text="@{fileDownload.name}"
+                android:textColor="@color/purple_700"
+                tools:text="VIDEO" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_toEndOf="@+id/img_video_pdf"
+                android:id="@+id/tv_file_type"
+                style="@style/textViewStyle"
+                android:layout_below="@id/tv_file_name"
+                android:text="@{fileDownload.type.toString()}"
+                tools:text="VIDEO" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

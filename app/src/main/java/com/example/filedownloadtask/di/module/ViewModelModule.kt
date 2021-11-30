@@ -2,6 +2,7 @@ package com.example.filedownloadtask.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.filedownloadtask.presentation.viewModel.MainViewModel
 import com.example.filedownloadtask.presentation.viewModel.ViewModelFactory
 import dagger.Binds
 import dagger.MapKey
@@ -12,6 +13,12 @@ import kotlin.reflect.KClass
 @Suppress("unused")
 @Module
 abstract class ViewModelModule {
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

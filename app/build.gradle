@@ -29,6 +29,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -36,6 +41,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -60,4 +66,14 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:2.27"
     kapt "com.google.dagger:dagger-compiler:2.33"
     kapt "com.google.dagger:dagger-android-processor:2.27"
+
+    // ViewModel and LiveData
+    def lifecycle_version = "2.4.0"
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // Kotlin
+    def activity_version = "1.4.0"
+    implementation("androidx.activity:activity-ktx:$activity_version")
+    implementation 'javax.inject:javax.inject:1'
+
 }
