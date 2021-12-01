@@ -44,7 +44,6 @@ class MainActivity : DaggerAppCompatActivity() {
     private fun submitList(it: List<FileDownload>?) {
         val adapter = it?.let { it1 -> FileListAdapter(it1) }
         dataBinding.recycleViewList.adapter = adapter
-        dataBinding.recycleViewList.setHasFixedSize(true)
 
     }
 }

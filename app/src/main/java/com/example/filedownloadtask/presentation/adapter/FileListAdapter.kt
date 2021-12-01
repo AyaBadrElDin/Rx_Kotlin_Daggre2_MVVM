@@ -21,19 +21,24 @@ class FileListAdapter constructor(private val fileList: List<FileDownload>) :
         return FileViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: FileViewHolder, position: Int)= holder.bind(fileList[position])
+    override fun onBindViewHolder(holder: FileViewHolder, position: Int) =
+        holder.bind(fileList[position])
 
     override fun getItemCount() = fileList.size
 
-    class FileViewHolder(private val binding:RowFileListBinding) : RecyclerView.ViewHolder(binding.root) {
+    class FileViewHolder(private val binding: RowFileListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("UseCompatLoadingForDrawables")
         fun bind(item: FileDownload) {
             binding.fileDownload = item
-            if(item.type==FileType.PDF){
-                binding.imgVideoPdf.setImageDrawable(binding.root.context.getDrawable(R.drawable.ic_baseline_file_open_24))
-            }else{
+            if (item.type == FileType.PDF) binding.imgVideoPdf.setImageDrawable(
+                binding.root.context.getDrawable(
+                    R.drawable.ic_baseline_file_open_24
+                )
+            )
+            else
                 binding.imgVideoPdf.setImageDrawable(binding.root.context.getDrawable(R.drawable.ic_baseline_live_tv_24))
-            }
+
             binding.executePendingBindings()
         }
 
