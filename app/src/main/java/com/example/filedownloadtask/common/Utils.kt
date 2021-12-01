@@ -1,7 +1,10 @@
 package com.example.filedownloadtask.common
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.Log
+import android.view.View
+import androidx.core.view.ViewCompat
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -31,4 +34,8 @@ fun subscribeOnBackground(function: () -> Unit) {
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe()
+}
+
+fun View.background(drawable: Drawable) {
+    ViewCompat.setBackground(this, drawable)
 }

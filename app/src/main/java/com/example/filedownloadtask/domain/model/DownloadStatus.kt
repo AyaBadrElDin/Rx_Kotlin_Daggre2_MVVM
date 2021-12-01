@@ -4,7 +4,8 @@ enum class DownloadStatus {
     DOWNLOADED,
     NOT_DOWNLOADED,
     IN_PROGRESS,
-    WAITING;
+    WAITING,
+    FAILED;
 
     override fun toString(): String {
         return when {
@@ -12,6 +13,7 @@ enum class DownloadStatus {
             this == NOT_DOWNLOADED -> "Not Download"
             this == IN_PROGRESS -> "In Progress"
             this == WAITING -> "Waiting"
+            this == WAITING -> "Failed"
             else -> "Not Download"
         }
     }

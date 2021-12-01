@@ -46,12 +46,16 @@
                 android:text="@{fileDownload.type.toString()}"
                 tools:text="VIDEO" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.example.filedownloadtask.presentation.customeView.ProgressButton
                 style="@style/relativeViewStyle"
+                android:id="@+id/button_progress"
+                android:background="@color/white"
+                android:padding="5dp"
                 android:text="@{fileDownload.fileStatus.toString()}"
                />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_mark_download"
                 style="@style/relativeViewStyle"
                 android:src="@drawable/ic_baseline_check_circle_24"
                 />

@@ -9,12 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.filedownloadtask.R
 import com.example.filedownloadtask.data.remote.local.room.FileDownload
 import com.example.filedownloadtask.databinding.ActivityMainBinding
+import com.example.filedownloadtask.listener.FileDownloadCallback
 import com.example.filedownloadtask.presentation.adapter.FileListAdapter
+import com.example.filedownloadtask.presentation.customeView.ProgressButton
 import com.example.filedownloadtask.presentation.viewModel.MainViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity(), FileDownloadCallback {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -42,8 +44,17 @@ class MainActivity : DaggerAppCompatActivity() {
     }
 
     private fun submitList(it: List<FileDownload>?) {
-        val adapter = it?.let { it1 -> FileListAdapter(it1) }
+        val adapter = it?.let { it1 -> FileListAdapter(it1, this) }
         dataBinding.recycleViewList.adapter = adapter
 
     }
+
+    override fun startDownload(download: FileDownload, progressButton: ProgressButton) {
+        viewModel.downloadFileUsingRxDownload(download, progressButton)
+    }
+
+    override fun openFile(download: FileDownload) {
+    }
+
+
 }
